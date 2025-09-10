@@ -1,8 +1,10 @@
 import React, { use } from "react";
 import { useSelector } from "react-redux";
 import { API_BASE_URL } from "../config/env";
+
 export default function Home() {
   const env = API_BASE_URL;
+
   const selector = useSelector((state) => state.auth.user);
   const handleGoBack = () => {
     window.history.back();
