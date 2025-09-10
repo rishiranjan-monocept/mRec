@@ -1,7 +1,7 @@
-import React, { use } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-
 import { API_BASE_URL } from "../config/env";
+import { testGet, testPost } from "../services/testApi";
 
 export default function Home() {
   const env = API_BASE_URL;
@@ -9,8 +9,13 @@ export default function Home() {
   const handleGoBack = () => {
     window.history.back();
   };
-  return (
 
+  useEffect(() => {
+    testGet();
+    testPost();
+  }, []);
+
+  return (
     <div>
       <div className="flex border-2 flex-row justify-between items-center">
         <ul className="flex justify-around w-full p-4 m-4 list-none">
