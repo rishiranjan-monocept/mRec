@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { login } from "../features/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -8,10 +10,18 @@ export default function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+
+  const selector = useSelector((store) => store.auth.user);
   const handleLogin = () => {
     dispatch(login({ name, password }));
-    navigate("/home");
+    if (name && password) navigate("/home");
+    else alert("Please enter username and password");
   };
+  useEffect(() => {
+    console.log("Selector-------->>", selector);
+  }, [selector]);
+
+
   return (
     <div className="flex justify-center h-screen items-center ">
       <div className=" border-blue-400 border-1 flex justify-center p-3 flex-col gap-4 items-center rounded-4xl bg-blue-100 h-70 w-100">
