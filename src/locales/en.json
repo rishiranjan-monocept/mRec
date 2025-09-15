@@ -1,0 +1,9 @@
+{
+  "login": "Login",
+  "username": "Username",
+  "password": "Password",
+  "enter_username": "Enter username",
+  "enter_password": "Enter password",
+  "login_button": "Login",
+  "login_error": "Please enter username and password"
+}
