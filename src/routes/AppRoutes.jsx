@@ -1,20 +1,14 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-// import AuthPage from "../features/auth/AuthPage";
-// import NotFound from "../pages/NotFound";
+import Onboarding from "../pages/Onboarding";
+import Kyc from "../pages/Kyc";
 
 export default function AppRoutes() {
   return (
     <>
       <Routes>
-
-        <Route path="/" element={<Navigate to="/login" replace />} />
-
-        <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
-
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="/" element={<Navigate to="/onboarding" replace />} />
+        <Route path="/onboarding" element={<Onboarding />} />
+        <Route path="/kyc" element={<Kyc />} />
       </Routes>
     </>
   );
