@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import i18n from "../../i18n/index";
 
 const initialState = {
-  language: "en", // default
+  language: "en",
 };
 
 const languageSlice = createSlice({
@@ -12,7 +12,7 @@ const languageSlice = createSlice({
   reducers: {
     changeLanguage: (state, action) => {
       state.language = action.payload;
-      i18n.changeLanguage(action.payload); // apply in i18n
+      i18n.changeLanguage(action.payload);
     },
   },
 });
