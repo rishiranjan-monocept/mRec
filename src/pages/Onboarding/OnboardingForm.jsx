@@ -8,7 +8,7 @@ export default function OnboardingForm() {
     console.log('Final onboarding data:', data);
   };
   return (
-    <div className="">
+    <div className="border-2">
       <Header title={'Onboarding'} />
       <MultiStageForm
         stagesConfig={onboardingFormConfig.stages}

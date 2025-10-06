@@ -1,9 +1,9 @@
 // AppRoutes.jsx
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 // import BaseLayout from "../layouts/BaseLayout";
-import Onboarding from '../pages/Onboarding';
-import Kyc from '../pages/Kyc';
+import Onboarding from '../pages/Onboarding/Onboarding';
 import BaseLayout from '../layouts/baseLayours';
+import OnboardingForm from '../pages/Onboarding/OnboardingForm';
 
 function BaseLayoutWrapper() {
   return (
@@ -20,7 +20,7 @@ export default function AppRoutes() {
 
       <Route element={<BaseLayoutWrapper />}>
         <Route path="/onboarding" element={<Onboarding />} />
-        <Route path="/kyc" element={<Kyc />} />
+        <Route path="/onboardingForm" element={<OnboardingForm />} />
       </Route>
     </Routes>
   );

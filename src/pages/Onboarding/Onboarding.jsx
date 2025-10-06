@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import Header from '../components/Header';
-import tick from '../assets/Onboarding/tick.svg';
-import CustomButton from '../components/CustomButton';
-import CollapsibleSection from '../components/Onboarding/CollapsibleSection';
-import ScaneAndUploadBtn from '../components/ScaneAndUploadBtn';
-import CAMERA from '../assets/Onboarding/Camera.svg';
-import GenericInput from '../components/GenericInput';
+import tick from '../../assets/Onboarding/tick.svg';
+import CAMERA from '../../assets/Onboarding/Camera.svg';
+
+import Header from '../../components/Header';
+import CollapsibleSection from '../../components/Onboarding/CollapsibleSection';
+import ScaneAndUploadBtn from '../../components/ScaneAndUploadBtn';
+import GenericInput from '../../components/GenericInput';
+import CustomButton from '../../components/CustomButton';
+import { useNavigate } from 'react-router-dom';
 
 export default function Onboarding() {
   const [value, setValue] = useState('');
+  const navigate = useNavigate();
   const steps = [
     {
       title: 'KYC Verification',
@@ -69,7 +72,7 @@ export default function Onboarding() {
         label={'Nominee Name'}
       />
       <div className="py-[26px]">
-        <CustomButton title={'Proceed'} onClick={() => console.log('clicked customButton')} />
+        <CustomButton title={'Proceed'} onClick={() => navigate('/onboardingForm')} />
       </div>
     </div>
   );
