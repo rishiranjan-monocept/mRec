@@ -1,78 +1,61 @@
-import React, { useState } from 'react';
-import tick from '../../assets/Onboarding/tick.svg';
-import CAMERA from '../../assets/Onboarding/Camera.svg';
-
-import Header from '../../components/Header';
-import CollapsibleSection from '../../components/Onboarding/CollapsibleSection';
-import ScaneAndUploadBtn from '../../components/ScaneAndUploadBtn';
-import GenericInput from '../../components/GenericInput';
-import CustomButton from '../../components/CustomButton';
+import ONBOARDINGIMG from '../../assets/Onboarding/OnboardingImg.svg';
+import SHIELD_ICON from '../../assets/Onboarding/Shield.svg';
+import PERSON_ICON from '../../assets/Onboarding/Person.svg';
+import CARD_ICON from '../../assets/Onboarding/Card.svg';
 import { useNavigate } from 'react-router-dom';
 
 export default function Onboarding() {
-  const [value, setValue] = useState('');
   const navigate = useNavigate();
-  const steps = [
-    {
-      title: 'KYC Verification',
-      description: 'Keep a copy of your PAN and Aadhaar Card',
-      icon: tick,
-    },
-    {
-      title: 'Personal Information Verification',
-      description: 'Keep highest education certificate and a passport sized photo handy',
-      icon: tick,
-    },
-    {
-      title: 'Bank & Income Verification',
-      description: 'Keep your last 6 month bank statements ready',
-      icon: tick,
-    },
-  ];
-
-  const stepsForGoodToHave = [
-    {
-      title: 'GST number',
-      description: 'If you have a registered business',
-      icon: tick,
-    },
-    {
-      title: 'Business address',
-      description: 'Where your business is located',
-      icon: tick,
-    },
-  ];
 
   return (
-    <div className="flex h-full flex-col justify-between">
-      <Header title={'Onboarding'} />
-      <div className="flex-1 overflow-y-auto">
-        <CollapsibleSection
-          title="Application Form Filling"
-          subtitle="This stage has three steps:"
-          steps={steps}
-          ß
-        />
-
-        <CollapsibleSection title="Good to Have" steps={stepsForGoodToHave} />
+    <div className="h-full bg-[#F4F6FA]">
+      <div className="flex justify-center bg-[#E6F4FB] pt-[30px] pb-[15px]">
+        <img src={ONBOARDINGIMG} className="" />
       </div>
-      <ScaneAndUploadBtn
-        title={'Scan and Upload'}
-        icon={CAMERA}
-        handleUploadOrScan={() => {
-          console.log('handleUploadOrScane is pressed');
-        }}
-        disabled={false}
-      />
-      <GenericInput
-        value={value}
-        onChange={() => {
-          setValue(event.target.value);
-        }}
-        label={'Nominee Name'}
-      />
-      <div className="py-[26px]">
-        <CustomButton title={'Proceed'} onClick={() => navigate('/onboardingForm')} />
+      <div className="px-[16px]">
+        <div className="pt-[16px] pb-[36px]">
+          <p className="text-center text-[25px] font-[700] tracking-[-0.04px] text-[#143A72]">
+            Welcome to Axis Max Life Onboarding
+          </p>
+          <p className="text-center text-[13px] font-[500] text-[#505662]">
+            Complete your profile to get started
+          </p>
+        </div>
+        <div className="flex flex-col gap-[12px] rounded-[8px] border border-[#E8EBF1] bg-[#FFF] p-[16px]">
+          <div className="flex gap-[12px]">
+            <div className="flex-shrink-0">
+              <img src={SHIELD_ICON} />
+            </div>
+            <div>
+              <p className="text-[16px] font-[600] text-[#143A72]">KYC Verification</p>
+              <p className="text-[13px] font-[400] text-[#505662]">
+                Keep a copy of your PAN, Aadhaar card and passport size photo
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-[12px]">
+            <div className="flex-shrink-0">
+              <img src={PERSON_ICON} />
+            </div>
+            <div>
+              <p className="text-[16px] font-[600] text-[#143A72]">Personal Information</p>
+              <p className="text-[13px] font-[400] text-[#505662]">
+                Keep highest education certificate and a passport sized photo handy
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-[12px]">
+            <div className="flex-shrink-0">
+              <img src={CARD_ICON} />
+            </div>
+            <div>
+              <p className="text-[16px] font-[600] text-[#143A72]">Bank & Income Verification</p>
+              <p className="text-[13px] font-[400] text-[#505662]">
+                Keep your last 6 month bank statements ready
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
