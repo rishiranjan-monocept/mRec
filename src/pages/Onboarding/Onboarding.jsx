@@ -42,7 +42,18 @@ export default function Onboarding() {
         </div>
         <div className="flex flex-col gap-[12px] rounded-[8px] border border-[#E8EBF1] bg-[#FFF] py-[16px]">
           {steps?.map((steps) => {
-            return <StepsUI img={steps.icon} title={steps.title} description={steps.description} />;
+            return (
+              <StepsUI
+                img={steps.icon}
+                title={steps.title}
+                description={steps.description}
+                onClick={() => {
+                  if (steps.title === 'KYC Verification') {
+                    navigate('/onboardingForm');
+                  }
+                }}
+              />
+            );
           })}
         </div>
       </div>
@@ -50,11 +61,11 @@ export default function Onboarding() {
   );
 }
 
-function StepsUI({ img, title, description }) {
+function StepsUI({ img, title, description, onClick }) {
   return (
     <div
       className="rounded-1xl flex gap-[12px] px-[16px] hover:cursor-pointer hover:bg-[#f1f1f1]"
-      onClick={() => console.log(title)}
+      onClick={onClick}
     >
       <div className="flex-shrink-0">
         <img src={img} />

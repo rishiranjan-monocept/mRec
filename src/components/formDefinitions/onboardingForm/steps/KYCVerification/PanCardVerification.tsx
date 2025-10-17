@@ -114,7 +114,7 @@ export default function PanCardVerification({ nextStep }) {
       <div className="mt-auto w-full border-t border-[#E8EBF1] bg-[#ffffff] p-4">
         <button
           type="submit"
-          className="w-full rounded-4xl bg-[#97144D] py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-blue-700 disabled:bg-gray-400"
+          className="w-full rounded-4xl bg-[#97144D] py-3 text-base font-semibold text-white"
         >
           Continue
         </button>
