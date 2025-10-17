@@ -30,11 +30,11 @@ export default function MultiStageForm({ stagesConfig, schemas, defaultValues, o
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(handleStepSubmit)}>
-        <StageProgressBar
+        {/* <StageProgressBar
           stagesConfig={stagesConfig}
           stageIndex={stageIndex}
           stepIndex={stepIndex}
-        />
+        /> */}
 
         {/* Pass navigation helpers to step */}
         <CurrentStepComponent
