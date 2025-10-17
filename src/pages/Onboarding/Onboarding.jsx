@@ -3,9 +3,28 @@ import SHIELD_ICON from '../../assets/Onboarding/Shield.svg';
 import PERSON_ICON from '../../assets/Onboarding/Person.svg';
 import CARD_ICON from '../../assets/Onboarding/Card.svg';
 import { useNavigate } from 'react-router-dom';
+import CustomButton from '../../components/CustomButton';
 
 export default function Onboarding() {
   const navigate = useNavigate();
+
+  const steps = [
+    {
+      title: 'KYC Verification',
+      description: 'Keep a copy of your PAN, Aadhaar card and passport size photo',
+      icon: SHIELD_ICON,
+    },
+    {
+      title: 'Personal Information',
+      description: 'Keep highest education certificate and a passport sized photo handy',
+      icon: PERSON_ICON,
+    },
+    {
+      title: 'Bank & Income Verification',
+      description: 'Keep your last 6 month bank statements ready',
+      icon: CARD_ICON,
+    },
+  ];
 
   return (
     <div className="h-full bg-[#F4F6FA]">
@@ -21,41 +40,28 @@ export default function Onboarding() {
             Complete your profile to get started
           </p>
         </div>
-        <div className="flex flex-col gap-[12px] rounded-[8px] border border-[#E8EBF1] bg-[#FFF] p-[16px]">
-          <div className="flex gap-[12px]">
-            <div className="flex-shrink-0">
-              <img src={SHIELD_ICON} />
-            </div>
-            <div>
-              <p className="text-[16px] font-[600] text-[#143A72]">KYC Verification</p>
-              <p className="text-[13px] font-[400] text-[#505662]">
-                Keep a copy of your PAN, Aadhaar card and passport size photo
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-[12px]">
-            <div className="flex-shrink-0">
-              <img src={PERSON_ICON} />
-            </div>
-            <div>
-              <p className="text-[16px] font-[600] text-[#143A72]">Personal Information</p>
-              <p className="text-[13px] font-[400] text-[#505662]">
-                Keep highest education certificate and a passport sized photo handy
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-[12px]">
-            <div className="flex-shrink-0">
-              <img src={CARD_ICON} />
-            </div>
-            <div>
-              <p className="text-[16px] font-[600] text-[#143A72]">Bank & Income Verification</p>
-              <p className="text-[13px] font-[400] text-[#505662]">
-                Keep your last 6 month bank statements ready
-              </p>
-            </div>
-          </div>
+        <div className="flex flex-col gap-[12px] rounded-[8px] border border-[#E8EBF1] bg-[#FFF] py-[16px]">
+          {steps?.map((steps) => {
+            return <StepsUI img={steps.icon} title={steps.title} description={steps.description} />;
+          })}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function StepsUI({ img, title, description }) {
+  return (
+    <div
+      className="rounded-1xl flex gap-[12px] px-[16px] hover:cursor-pointer hover:bg-[#f1f1f1]"
+      onClick={() => console.log(title)}
+    >
+      <div className="flex-shrink-0">
+        <img src={img} />
+      </div>
+      <div>
+        <p className="text-[16px] font-[600] text-[#143A72]">{title}</p>
+        <p className="text-[13px] font-[400] text-[#505662]">{description} </p>
       </div>
     </div>
   );
